@@ -1,0 +1,245 @@
+:root {
+  --primary-color: #2ecc71;
+  --primary-dark: #27ae60;
+  --dark-bg: #121212;
+  --dark-surface: #1e1e1e;
+  --dark-text: #e0e0e0;
+  --dark-text-secondary: #b0b0b0;
+  --positive: #2ecc71;
+  --negative: #e74c3c;
+  --border-radius: 8px;
+  --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: var(--dark-bg);
+  color: var(--dark-text);
+  line-height: 1.6;
+  padding: 20px;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.app-header {
+  text-align: center;
+  margin-bottom: 30px;
+  padding: 20px;
+  background-color: var(--dark-surface);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+}
+
+.app-header h1 {
+  color: var(--primary-color);
+  font-size: 2.5rem;
+  margin-bottom: 5px;
+}
+
+.app-header .subtitle {
+  color: var(--dark-text-secondary);
+  font-size: 1rem;
+}
+
+.stats-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.stat-card {
+  background-color: var(--dark-surface);
+  padding: 20px;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  text-align: center;
+}
+
+.stat-card h3 {
+  color: var(--dark-text-secondary);
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.stat-card p {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.positive {
+  color: var(--positive);
+}
+
+.negative {
+  color: var(--negative);
+}
+
+.transaction-form, .transactions-container {
+  background-color: var(--dark-surface);
+  padding: 20px;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  margin-bottom: 30px;
+}
+
+h2 {
+  color: var(--primary-color);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--dark-text-secondary);
+}
+
+input, select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #333;
+  border-radius: var(--border-radius);
+  background-color: #2a2a2a;
+  color: var(--dark-text);
+  font-size: 1rem;
+}
+
+input:focus, select:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}
+
+.btn {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  width: 100%;
+  transition: background-color 0.3s;
+}
+
+.btn:hover {
+  background-color: var(--primary-dark);
+}
+
+.filter-controls {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.filter-controls select, .filter-controls input {
+  flex: 1;
+}
+
+.transactions-list {
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.transaction-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  background-color: #2a2a2a;
+  border-radius: var(--border-radius);
+  margin-bottom: 10px;
+  transition: transform 0.2s;
+}
+
+.transaction-item:hover {
+  transform: translateX(5px);
+}
+
+.transaction-info {
+  flex: 1;
+}
+
+.transaction-description {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.transaction-date {
+  font-size: 0.8rem;
+  color: var(--dark-text-secondary);
+}
+
+.transaction-amount.income {
+  color: var(--positive);
+  font-weight: bold;
+}
+
+.transaction-amount.expense {
+  color: var(--negative);
+  font-weight: bold;
+}
+
+.transaction-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.delete-btn {
+  background: none;
+  border: none;
+  color: var(--negative);
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.empty-message {
+  text-align: center;
+  color: var(--dark-text-secondary);
+  padding: 20px;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #2a2a2a;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-dark);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-color);
+}
+
+@media (max-width: 768px) {
+  .stats-container {
+      grid-template-columns: 1fr;
+  }
+  
+  .filter-controls {
+      flex-direction: column;
+  }
+}
